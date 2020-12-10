@@ -1,0 +1,31 @@
+
+<div class="container">
+    <h1 class="text-center">Youtubers List</h1>
+    <input
+    type="search"
+    placeholder="Search channel name"
+    class="form-control mt-5"
+    [(ngModel)]="commonTerm" 
+    style="width:auto">
+  <div class="table">
+    <table>
+      <thead>
+        <!-- <th>S.no</th> -->
+        <th>Channel name</th>
+        <th>Mail id</th>
+        <th>Mobile</th>
+        <th>Avg views for video</th>
+        <th>Channel link</th>
+      </thead>
+      <tr *ngFor="let k of youtubersList | common:commonTerm">
+        <!-- <td *ngFor="let l of index">{{l}}</td> -->
+        <td>{{k.channelname}}</td>
+        <td>{{k.email}}</td>
+        <td>{{k.mobile}}</td>
+        <td>{{k.views}}</td>
+        <td><a href="{{k.link}}" target="_blank">Visit channel</a></td>
+      </tr>
+    </table>
+   
+  </div>
+  </div>

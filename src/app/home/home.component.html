@@ -1,0 +1,91 @@
+<div class="row">
+    <div class="col-4"></div>
+    <div class="col-4">
+        <h2>Register Youtuber</h2>
+        <form name="form" #ref="ngForm" autocomplete="off" (ngSubmit)="newYoutuber(ref.value);ref.reset()">
+            <div class="form-group">
+              <label for="channelname">Channel Name</label>
+              <input type="text" class="form-control" autocomplete="off" name="channelname" minlength="2" required #ref1="ngModel" ngModel placeholder="Channel name" id="channelname">
+              <div *ngIf="ref1.invalid && (ref1.dirty || ref1.touched)" class="alert text-danger">
+                <div *ngIf="ref1.errors.required">
+                  *Channel name is required.
+                </div>
+                <div *ngIf="ref1.errors.minlength">
+                  *fullname must be atleast 2 characters
+                </div>
+              </div>
+              <p id="demo1"></p>
+            </div>
+      
+            <div class="form-group">
+                <label for="email">Email id</label>
+                <input type="email" class="form-control" name="email" #ref3="ngModel" required  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" ngModel placeholder="Email" id="email">
+                <div *ngIf="ref3.invalid && (ref3.dirty || ref3.touched)" class="alert text-danger">
+                  <div *ngIf="ref3.errors.required">
+                    *Email id required
+                  </div>
+                  <div *ngIf="ref3.errors.pattern">
+                    *Enter valid mail id
+                  </div>
+                </div>
+                <p id="demo3"></p>
+              </div>
+             
+              <div class="form-group">
+                <label for="mobile">Mobile</label>
+                <input type="number" class="form-control"  name="mobile"  autocomplete="off" pattern="[0-9]{10}"  #ref2="ngModel" ngModel placeholder="Mobile (optional)" id="mobile">
+                <div *ngIf="ref2.invalid && (ref2.dirty || ref2.touched)" class="alert text-danger">
+                  <!-- <div *ngIf="ref2.errors.required">
+                    *Mobile number is required
+                  </div> -->
+                  <div *ngIf="ref2.errors.pattern">
+                    *Mobile number must contain 10 digits
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="views">Avg views</label>
+                <input type="text" class="form-control"  name="views"  autocomplete="off"  #ref4="ngModel" ngModel placeholder="views (optional)" id="views">
+                <div *ngIf="ref4.invalid && (ref4.dirty || ref4.touched)" class="alert text-danger">
+                  <!-- <div *ngIf="ref4.errors.required">
+                    *Mobile number is required
+                  </div>
+                  <div *ngIf="ref4.errors.pattern">
+                    *Mobile number must contain 10 digits
+                  </div>-->
+                </div> 
+              </div>
+
+              <div class="form-group">
+                <label for="link">Channel link</label>
+                <input type="url" class="form-control"  name="link"  autocomplete="off"  #ref5="ngModel" required ngModel placeholder="channel link" id="link">
+                <div *ngIf="ref5.invalid && (ref5.dirty || ref5.touched)" class="alert text-danger">
+                  <!-- <div *ngIf="ref4.errors.required">
+                    *Mobile number is required
+                  </div>
+                  <div *ngIf="ref4.errors.pattern">
+                    *Mobile number must contain 10 digits
+                  </div>-->
+                  *Channel link is required
+                </div> 
+              </div>
+
+              <div class="form-group">
+                <button type="submit" [disabled]="ref.invalid" class="btn btn-primary">Register</button>
+              </div>
+          </form>
+    </div>
+    <div class="col-4">
+      <strong> For bulk data entry, you can also upload as excel sheets...</strong>
+        <div class="form-group">
+            <label for="myFile">upload excel</label>
+            <input type="file" name="excel" class="form-control"
+            (change)="fileUpload($event)" #ref6="ngModel" ngModel>
+        </div>
+        <button class="btn btn-success" (click)="sheetData(ref6.value);ref6.reset()">Upload</button>
+    </div>
+</div>
+
+
+<router-outlet></router-outlet>
