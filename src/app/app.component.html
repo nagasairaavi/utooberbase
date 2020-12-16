@@ -5,13 +5,100 @@
     <!-- Links -->
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" routerLink="home"><strong>Home</strong></a>
+        <a class="nav-link" routerLink="home"><b>Home</b></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="youtuberslist"><strong>YoutubersList</strong></a>
+        <a class="nav-link" routerLink="youtuberslist"><b>YoutubersList</b></a>
       </li>
     </ul>
   </nav>
+
+
+
+<!-- 
+  <div class="container py-4">
+    <div class="row">
+        <div class="col-md-12">
+            <h4>Bootstrap 4 Open Modal on Page Load</h4>
+            <h5>Wait for it...</h5>
+            <p class="lead">Here is the page content.
+            Shoreditch vegan artisan Helvetica. Tattooed Codeply Echo Park Godard kogi, next level irony ennui twee squid fap selvage. Meggings flannel Brooklyn literally small batch, mumblecore
+                PBR try-hard kale chips. Brooklyn vinyl lumbersexual bicycle rights, viral fap cronut leggings squid chillwave pickled gentrify mustache. 3 wolf moon hashtag church-key Odd Future. Austin messenger bag normcore, Helvetica Williamsburg
+                sartorial tote bag distillery Portland before they sold out gastropub taxidermy Vice.</p>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">My Modal</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h5>Add content here.</h5>
+                <p>This is a vertically centered modal. Modal body text goes here. This content can be whatever you'd like. Text, images, forms, etc.. can be added here in the modal body.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary mx-auto" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+
+
+
+
+
+
+
+<!-- <button type="button" class="btn btn-primary" (click) = "show()">
+  Open modal
+</button> -->
+<!-- The Modal -->
+<div class="modal" id="myModal" [style.display]="showModal ? 'block' : 'none'">
+  <div class="modal-dialog">
+    <div class="modal-content">
+    
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Thankyou for visiting UtooberBASE</h4>
+      </div>
+      
+      <!-- Modal body -->
+      <div class="modal-body">
+        For improving our site better and Edit our content we need your identity... kindly enter your valid mailid below
+        <form name="form" #ref="ngForm" autocomplete="off" (ngSubmit)="newUser(ref.value);ref.reset();hide()">
+          
+          <div class="form-group">
+            <input type="email" class="form-control" name="email" #ref3="ngModel" required  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" ngModel placeholder="Email" id="email">
+            <div *ngIf="ref3.invalid && (ref3.dirty || ref3.touched)" class="alert text-danger">
+              <div *ngIf="ref3.errors.required">
+                *Email id required
+              </div>
+              <div *ngIf="ref3.errors.pattern">
+                *Enter valid mail id
+              </div>
+            </div>
+            <p id="demo3"></p>
+          </div>
+        </form>
+      </div>
+      
+      <!-- Modal footer -->
+      <div class="modal-footer text-center">
+        <div class="form-group">
+          <button type="submit" [disabled]="ref.invalid"  (click)="newUser(ref.value);hide()" class="btn btn-primary">Enter</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 

@@ -1,5 +1,5 @@
 
-<div class="container">
+<div class="container-fluid">
     <h1 class="text-center">Youtubers List</h1>
     <input
     type="search"
@@ -7,15 +7,29 @@
     class="form-control mt-5"
     [(ngModel)]="commonTerm" 
     style="width:auto">
-  <div class="table">
-    <table>
-      <thead>
+  <div>
+
+
+
+
+    <!-- infinite scroll -->
+  <div
+    class="search-results"
+    infiniteScroll
+    [infiniteScrollDistance]="2"
+    [infiniteScrollThrottle]="50"
+    (scrolled)="onScroll()"
+                          >
+    <table class="table table-success table-hover table-striped">
+      <thead class="bg-info">
+        <tr>
         <!-- <th>S.no</th> -->
         <th>Channel name</th>
         <th>Mail id</th>
         <th>Mobile</th>
         <th>Avg views for video</th>
         <th>Channel link</th>
+      </tr>
       </thead>
       <tr *ngFor="let k of youtubersList | common:commonTerm">
         <!-- <td *ngFor="let l of index">{{l}}</td> -->
@@ -26,6 +40,6 @@
         <td><a href="{{k.link}}" target="_blank">Visit channel</a></td>
       </tr>
     </table>
-   
+  </div> 
   </div>
   </div>

@@ -26,8 +26,6 @@ public message:any
     this.cs.youtubersList().subscribe((dataYoutube)=>{
       console.log("a1");
       
-      
-      
       this.youtubersList=dataYoutube["message"];
       
       this.Alength=this.youtubersList.length;
@@ -36,7 +34,7 @@ public message:any
         console.log("checking for loop");
         
         this.index.push(i);
-      }
+        }
       console.log(this.index);
       
       
@@ -46,7 +44,16 @@ public message:any
   }
 
 
-  
+
+
+
+  onScroll(){
+    console.log("scrolled");
+    
+  }
+
+
+
 
 
 

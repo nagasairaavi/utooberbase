@@ -1,7 +1,8 @@
 <div class="row">
     <div class="col-4"></div>
     <div class="col-4">
-        <h2>Register Youtuber</h2>
+       <div class="jumbotron shadow-lg p-3 mb-5 bg-white rounded">
+        <h4 class="text-center">Enter Youtuber Data</h4>
         <form name="form" #ref="ngForm" autocomplete="off" (ngSubmit)="newYoutuber(ref.value);ref.reset()">
             <div class="form-group">
               <label for="channelname">Channel Name</label>
@@ -72,9 +73,24 @@
               </div>
 
               <div class="form-group">
+                <label for="price">Price Range</label>
+                <input type="text" class="form-control"  name="price"  autocomplete="off"  #ref6="ngModel" required ngModel placeholder="price range" id="price">
+                <div *ngIf="ref6.invalid && (ref6.dirty || ref6.touched)" class="alert text-danger">
+                  <!-- <div *ngIf="ref4.errors.required">
+                    *Mobile number is required
+                  </div>
+                  <div *ngIf="ref4.errors.pattern">
+                    *Mobile number must contain 10 digits
+                  </div>-->
+                  *Price range required
+                </div> 
+              </div>
+
+              <div class="form-group">
                 <button type="submit" [disabled]="ref.invalid" class="btn btn-primary">Register</button>
               </div>
           </form>
+       </div>
     </div>
     <div class="col-4">
       <strong> For bulk data entry, you can also upload as excel sheets...</strong>

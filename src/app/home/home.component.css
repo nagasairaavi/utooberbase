@@ -1,0 +1,15 @@
+.p-3 {
+    padding: 2rem!important;
+
+}
+.mb-5, .my-5 {
+    margin-bottom: 3rem!important;
+    margin-top: 1rem;
+}
+.shadow {
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+}
+
+.bg-white {
+    background-color: #fff!important;
+}
