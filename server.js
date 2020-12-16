@@ -159,5 +159,6 @@ var storagemarks = multer.diskStorage({
 
 
 
-const port=1000;
-app.listen(process.env.port||port,()=>{console.log(`server listening on ${port}...`);})
+    app.listen(process.env.PORT || 1000 ,()=>{
+        console.log("server started")
+    })
