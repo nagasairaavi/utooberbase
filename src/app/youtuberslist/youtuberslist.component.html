@@ -25,15 +25,22 @@
         <tr>
         <!-- <th>S.no</th> -->
         <th>Channel name</th>
+        <th>category</th>
+        <th>country</th>
+        <th>Price range</th>
         <th>Mail id</th>
         <th>Mobile</th>
-        <th>Avg views for video</th>
+        <th>Avg views</th>
         <th>Channel link</th>
+        
       </tr>
       </thead>
       <tr *ngFor="let k of youtubersList | common:commonTerm">
         <!-- <td *ngFor="let l of index">{{l}}</td> -->
         <td>{{k.channelname}}</td>
+        <td>{{k.category}}</td>
+        <td>{{k.country}}</td>
+        <td>{{k.price}}</td>
         <td>{{k.email}}</td>
         <td>{{k.mobile}}</td>
         <td>{{k.views}}</td>

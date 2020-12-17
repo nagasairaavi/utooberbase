@@ -4,7 +4,9 @@
        <div class="jumbotron shadow-lg p-3 mb-5 bg-white rounded">
         <h4 class="text-center">Enter Youtuber Data</h4>
         <form name="form" #ref="ngForm" autocomplete="off" (ngSubmit)="newYoutuber(ref.value);ref.reset()">
-            <div class="form-group">
+            
+          
+          <div class="form-group">
               <label for="channelname">Channel Name</label>
               <input type="text" class="form-control" autocomplete="off" name="channelname" minlength="2" required #ref1="ngModel" ngModel placeholder="Channel name" id="channelname">
               <div *ngIf="ref1.invalid && (ref1.dirty || ref1.touched)" class="alert text-danger">
@@ -12,12 +14,30 @@
                   *Channel name is required.
                 </div>
                 <div *ngIf="ref1.errors.minlength">
-                  *fullname must be atleast 2 characters
+                  *Channelname must be atleast 2 characters
+                </div>
+              </div>
+              <p id="demo1"></p>
+            </div>
+
+
+
+            <div class="form-group">
+              <label for="category">Category</label>
+              <input type="text" class="form-control" autocomplete="off" name="category" minlength="2" required #ref10="ngModel" ngModel placeholder="Category" id="category">
+              <div *ngIf="ref10.invalid && (ref10.dirty || ref10.touched)" class="alert text-danger">
+                <div *ngIf="ref10.errors.required">
+                  *Channel category required.
+                </div>
+                <div *ngIf="ref10.errors.minlength">
+                  *Channel category must be atleast 2 characters
                 </div>
               </div>
               <p id="demo1"></p>
             </div>
       
+           
+           
             <div class="form-group">
                 <label for="email">Email id</label>
                 <input type="email" class="form-control" name="email" #ref3="ngModel" required  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" ngModel placeholder="Email" id="email">
@@ -32,6 +52,8 @@
                 <p id="demo3"></p>
               </div>
              
+             
+             
               <div class="form-group">
                 <label for="mobile">Mobile</label>
                 <input type="number" class="form-control"  name="mobile"  autocomplete="off" pattern="[0-9]{10}"  #ref2="ngModel" ngModel placeholder="Mobile (optional)" id="mobile">
@@ -45,6 +67,8 @@
                 </div>
               </div>
 
+
+
               <div class="form-group">
                 <label for="views">Avg views</label>
                 <input type="text" class="form-control"  name="views"  autocomplete="off"  #ref4="ngModel" ngModel placeholder="views (optional)" id="views">
@@ -57,6 +81,8 @@
                   </div>-->
                 </div> 
               </div>
+
+
 
               <div class="form-group">
                 <label for="link">Channel link</label>
@@ -72,6 +98,8 @@
                 </div> 
               </div>
 
+
+
               <div class="form-group">
                 <label for="price">Price Range</label>
                 <input type="text" class="form-control"  name="price"  autocomplete="off"  #ref6="ngModel" required ngModel placeholder="price range" id="price">
@@ -85,6 +113,24 @@
                   *Price range required
                 </div> 
               </div>
+
+
+
+              <div class="form-group">
+                <label for="country">Country</label>
+                <input type="text" class="form-control"  name="country"  autocomplete="off"  #ref7="ngModel" required ngModel placeholder="country" id="country">
+                <div *ngIf="ref7.invalid && (ref7.dirty || ref7.touched)" class="alert text-danger">
+                  <!-- <div *ngIf="ref4.errors.required">
+                    *Mobile number is required
+                  </div>
+                  <div *ngIf="ref4.errors.pattern">
+                    *Mobile number must contain 10 digits
+                  </div>-->
+                  *country required
+                </div> 
+              </div>
+
+
 
               <div class="form-group">
                 <button type="submit" [disabled]="ref.invalid" class="btn btn-primary">Register</button>
